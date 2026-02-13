@@ -31,7 +31,7 @@ const Login = () => {
     try {
       await login(formData);
       toast.success('Login successful! Welcome back!');
-      navigate('/dashboard');
+      navigate('/my-blogs');
     } catch (error) {
       console.log('Full error object:', error);
       console.log('Error response:', error.response);

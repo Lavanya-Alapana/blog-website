@@ -60,3 +60,6 @@ data/
 
 # PM2 process manager
 .pm2/
+
+# Uploaded files
+uploads/

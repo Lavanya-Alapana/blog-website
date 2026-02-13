@@ -34,7 +34,7 @@ const Register = () => {
       const { confirmPassword, ...registerData } = formData;
       await register(registerData);
       toast.success('Account created successfully! Welcome to BlogHub!');
-      navigate('/dashboard');
+      navigate('/my-blogs');
     } catch (error) {
       console.log('Register error:', error.response?.data); // Debug log
       

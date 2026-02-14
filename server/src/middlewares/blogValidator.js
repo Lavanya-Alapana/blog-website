@@ -11,10 +11,6 @@ const validateCreateBlog = [
     .notEmpty().withMessage('Content is required')
     .isLength({ min: 10 }).withMessage('Content must be at least 10 characters'),
   
-  body('excerpt')
-    .optional({ checkFalsy: true })
-    .trim()
-    .isLength({ max: 500 }).withMessage('Excerpt cannot exceed 500 characters'),
   
   body('status')
     .optional()
@@ -50,10 +46,7 @@ const validateUpdateBlog = [
     .trim()
     .isLength({ min: 10 }).withMessage('Content must be at least 10 characters'),
   
-  body('excerpt')
-    .optional({ checkFalsy: true })
-    .trim()
-    .isLength({ max: 500 }).withMessage('Excerpt cannot exceed 500 characters'),
+
   
   body('status')
     .optional()

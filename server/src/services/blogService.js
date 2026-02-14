@@ -5,12 +5,21 @@ const { BadRequestError, NotFoundError, UnauthorizedError } = require('../utils/
 class BlogService {
   // Create new blog post
   async createBlog(blogData, authorId) {
-    const blog = await Blog.create({
-      ...blogData,
-      author: authorId
-    });
-    
-    return await blog.populate('author', 'name email');
+    try {
+      const blog = await Blog.create({
+        ...blogData,
+        author: authorId
+      });
+      
+      return await blog.populate('author', 'name email');
+    } catch (error) {
+      // Handle MongoDB duplicate key error
+      if (error.code === 11000) {
+        const field = Object.keys(error.keyPattern)[0];
+        throw new BadRequestError(`A blog with this ${field} already exists. Please use a different ${field}.`);
+      }
+      throw error;
+    }
   }
 
   // Get all blogs with pagination and filters

@@ -7,6 +7,7 @@ const blogSchema = new mongoose.Schema({
     trim: true,
     maxlength: [200, 'Title cannot exceed 200 characters'],
     minlength: [3, 'Title must be at least 3 characters']
+    // Note: No unique constraint - users can have similar titles
   },
   content: {
     type: String,

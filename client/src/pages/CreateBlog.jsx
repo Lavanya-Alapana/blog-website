@@ -102,10 +102,13 @@ const CreateBlog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-xl shadow-md p-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">Create New Blog Post</h1>
+        <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="mb-8">
+            <h1 className="text-3xl font-bold text-slate-900 mb-2">Share Your Travel Story</h1>
+            <p className="text-slate-600">Inspire others with your adventures and experiences</p>
+          </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Title */}
@@ -122,9 +125,9 @@ const CreateBlog = () => {
                 className={`w-full px-4 py-3 border-2 rounded-lg outline-none transition-all ${
                   errors.title
                     ? 'border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100'
-                    : 'border-gray-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-100'
+                    : 'border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-100'
                 }`}
-                placeholder="Enter an engaging title"
+                placeholder="e.g., My Amazing Journey Through Southeast Asia"
                 disabled={loading}
               />
               {errors.title && <p className="text-red-600 text-sm mt-1">{errors.title}</p>}
@@ -202,9 +205,9 @@ const CreateBlog = () => {
                 className={`w-full px-4 py-3 border-2 rounded-lg outline-none transition-all resize-none ${
                   errors.content
                     ? 'border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100'
-                    : 'border-gray-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-100'
+                    : 'border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-100'
                 }`}
-                placeholder="Write your blog content here..."
+                placeholder="Share your travel experience, tips, and memorable moments..."
                 disabled={loading}
               />
               {errors.content && <p className="text-red-600 text-sm mt-1">{errors.content}</p>}
@@ -222,8 +225,8 @@ const CreateBlog = () => {
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
-                  placeholder="e.g., Technology, Lifestyle"
+                  className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+                  placeholder="e.g., Adventure, Beach, Culture"
                   disabled={loading}
                 />
               </div>
@@ -237,7 +240,7 @@ const CreateBlog = () => {
                   name="status"
                   value={formData.status}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                  className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
                   disabled={loading}
                 >
                   <option value="draft">Draft</option>
@@ -257,8 +260,8 @@ const CreateBlog = () => {
                 name="tags"
                 value={formData.tags}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
-                placeholder="javascript, react, tutorial (comma separated)"
+                className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-100"
+                placeholder="travel, adventure, tips, destination (comma separated)"
                 disabled={loading}
               />
               <p className="text-sm text-gray-500 mt-1">
@@ -271,14 +274,14 @@ const CreateBlog = () => {
               <button
                 type="submit"
                 disabled={loading || uploading}
-                className="flex-1 bg-gradient-to-r from-[#1e3a8a] to-[#1e40af] text-white py-3 rounded-lg font-semibold hover:from-[#1e40af] hover:to-[#1d4ed8] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                className="flex-1 bg-gradient-to-r from-teal-500 to-cyan-500 text-white py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-600 transition-all disabled:opacity-60 disabled:cursor-not-allowed shadow-md"
               >
-                {loading ? 'Creating...' : 'Create Blog Post'}
+                {loading ? 'Publishing...' : 'Publish Story'}
               </button>
               <button
                 type="button"
                 onClick={() => navigate('/my-blogs')}
-                className="px-8 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                className="px-8 py-3 border-2 border-slate-300 text-slate-700 rounded-lg font-semibold hover:bg-slate-50 transition-colors"
               >
                 Cancel
               </button>

@@ -105,7 +105,7 @@ const BlogDetail = () => {
   const isAuthor = user && blog.author._id === user._id;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Hero Section */}
       {blog.featuredImage && (
         <div className="h-96 relative">
@@ -114,41 +114,41 @@ const BlogDetail = () => {
             alt={blog.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
         </div>
       )}
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-white rounded-xl shadow-md p-8 lg:p-12 -mt-32 relative z-10">
+        <div className="bg-white rounded-xl shadow-lg p-8 lg:p-12 -mt-32 relative z-10">
           {/* Category Badge */}
           <div className="mb-6">
-            <span className="px-4 py-2 bg-blue-100 text-blue-800 text-sm font-semibold rounded-full">
-              {blog.category}
+            <span className="px-4 py-2 bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-800 text-sm font-semibold rounded-full">
+              {blog.category || 'Travel'}
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
             {blog.title}
           </h1>
 
           {/* Author Info */}
-          <div className="flex items-center justify-between mb-8 pb-8 border-b border-gray-200">
+          <div className="flex items-center justify-between mb-8 pb-8 border-b border-slate-200">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+              <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">
                 {blog.author.name.charAt(0).toUpperCase()}
               </div>
               <div>
-                <p className="font-semibold text-gray-900">{blog.author.name}</p>
-                <p className="text-sm text-gray-500">
+                <p className="font-semibold text-slate-900">{blog.author.name}</p>
+                <p className="text-sm text-slate-500">
                   {formatDate(blog.publishedAt || blog.createdAt)}
                 </p>
               </div>
             </div>
 
             {/* Stats */}
-            <div className="flex items-center gap-6 text-gray-600">
+            <div className="flex items-center gap-6 text-slate-600">
               <button
                 onClick={handleLike}
                 className={`flex items-center gap-2 transition-colors ${
@@ -169,7 +169,7 @@ const BlogDetail = () => {
               {blog.tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  className="px-3 py-1 bg-teal-50 text-teal-700 text-sm rounded-full font-medium"
                 >
                   #{tag}
                 </span>
@@ -179,25 +179,25 @@ const BlogDetail = () => {
 
           {/* Content */}
           <div className="prose prose-lg max-w-none mb-8">
-            <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
+            <p className="text-slate-700 leading-relaxed whitespace-pre-wrap text-lg">
               {blog.content}
             </p>
           </div>
 
           {/* Author Actions */}
           {isAuthor && (
-            <div className="flex gap-4 pt-8 border-t border-gray-200">
+            <div className="flex gap-4 pt-8 border-t border-slate-200">
               <Link
                 to={`/blogs/${blog._id}/edit`}
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-lg font-semibold hover:from-teal-600 hover:to-cyan-600 transition-all shadow-md"
               >
-                Edit Blog
+                Edit Story
               </Link>
               <button
                 onClick={openDeleteModal}
-                className="px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors"
+                className="px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors shadow-md"
               >
-                Delete Blog
+                Delete Story
               </button>
             </div>
           )}
@@ -207,12 +207,12 @@ const BlogDetail = () => {
         <div className="mt-8">
           <Link
             to="/blogs"
-            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
+            className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-semibold"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Back to Blogs
+            Back to Stories
           </Link>
         </div>
       </div>

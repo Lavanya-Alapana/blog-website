@@ -66,8 +66,8 @@ const Register = () => {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-white">
         <div className="w-full max-w-md">
          
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h1>
-          <p className="text-gray-600 mb-8">Join our community of writers today</p>
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">Start Your Adventure</h1>
+          <p className="text-slate-600 mb-8">Join our community of travel storytellers</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -83,8 +83,8 @@ const Register = () => {
                 className={`w-full px-4 py-3 border-2 rounded-lg text-sm transition-all outline-none ${
                   errors.name 
                     ? 'border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100' 
-                    : 'border-gray-300 focus:border-[#1e40af] focus:ring-4 focus:ring-blue-100'
-                } disabled:bg-gray-50 disabled:cursor-not-allowed`}
+                    : 'border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-100'
+                } disabled:bg-slate-50 disabled:cursor-not-allowed`}
                 placeholder="John Doe"
                 disabled={loading}
               />
@@ -106,8 +106,8 @@ const Register = () => {
                 className={`w-full px-4 py-3 border-2 rounded-lg text-sm transition-all outline-none ${
                   errors.email 
                     ? 'border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100' 
-                    : 'border-gray-300 focus:border-[#1e40af] focus:ring-4 focus:ring-blue-100'
-                } disabled:bg-gray-50 disabled:cursor-not-allowed`}
+                    : 'border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-100'
+                } disabled:bg-slate-50 disabled:cursor-not-allowed`}
                 placeholder="you@example.com"
                 disabled={loading}
               />
@@ -129,8 +129,8 @@ const Register = () => {
                 className={`w-full px-4 py-3 border-2 rounded-lg text-sm transition-all outline-none ${
                   errors.password 
                     ? 'border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100' 
-                    : 'border-gray-300 focus:border-[#1e40af] focus:ring-4 focus:ring-blue-100'
-                } disabled:bg-gray-50 disabled:cursor-not-allowed`}
+                    : 'border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-100'
+                } disabled:bg-slate-50 disabled:cursor-not-allowed`}
                 placeholder="Create a password (min. 6 characters)"
                 disabled={loading}
               />
@@ -152,8 +152,8 @@ const Register = () => {
                 className={`w-full px-4 py-3 border-2 rounded-lg text-sm transition-all outline-none ${
                   errors.confirmPassword 
                     ? 'border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100' 
-                    : 'border-gray-300 focus:border-[#1e40af] focus:ring-4 focus:ring-blue-100'
-                } disabled:bg-gray-50 disabled:cursor-not-allowed`}
+                    : 'border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-100'
+                } disabled:bg-slate-50 disabled:cursor-not-allowed`}
                 placeholder="Confirm your password"
                 disabled={loading}
               />
@@ -165,7 +165,7 @@ const Register = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-[#1e3a8a] to-[#1e40af] text-white py-3 rounded-lg font-semibold text-base transition-all hover:shadow-lg hover:from-[#1e40af] hover:to-[#1d4ed8] disabled:opacity-60 disabled:cursor-not-allowed mt-6 flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-teal-500 to-cyan-500 text-white py-3 rounded-lg font-semibold text-base transition-all hover:shadow-lg hover:from-teal-600 hover:to-cyan-600 disabled:opacity-60 disabled:cursor-not-allowed mt-6 flex items-center justify-center gap-2"
             >
               {loading ? (
                 <>
@@ -186,9 +186,9 @@ const Register = () => {
             </button>
           </form>
 
-          <p className="text-center text-sm text-gray-600 mt-6">
+          <p className="text-center text-sm text-slate-600 mt-6">
             Already have an account?{' '}
-            <Link to="/login" className="text-[#1e40af] font-semibold hover:underline">
+            <Link to="/login" className="text-teal-600 font-semibold hover:underline">
               Sign in
             </Link>
           </p>
@@ -196,7 +196,7 @@ const Register = () => {
       </div>
 
       {/* Right Side - Grid Pattern */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-tr from-[#0f172a] via-[#1e293b] to-[#334155] items-center justify-center p-12 relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-teal-600 via-cyan-600 to-blue-600 items-center justify-center p-12 relative overflow-hidden">
         {/* Diagonal Lines Pattern */}
         <div className="absolute inset-0 opacity-5">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -218,56 +218,56 @@ const Register = () => {
         
         <div className="max-w-lg text-white relative z-10">
           <div className="mb-8">
-            <div className="w-20 h-20 mb-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl">
+            <div className="w-20 h-20 mb-6 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl">
               <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
               </svg>
             </div>
-            <h2 className="text-4xl font-bold mb-4">Begin Your Writing Adventure</h2>
-            <p className="text-slate-300 text-lg leading-relaxed">
-              Join a vibrant community of writers. Share your unique perspective and make your voice heard.
+            <h2 className="text-4xl font-bold mb-4">Begin Your Travel Journey</h2>
+            <p className="text-teal-50 text-lg leading-relaxed">
+              Join thousands of travelers sharing their adventures, tips, and unforgettable experiences.
             </p>
           </div>
           
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/20">
-              <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mb-3">
+              <div className="w-10 h-10 bg-white/30 rounded-lg flex items-center justify-center mb-3">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-base mb-1">Rich Editor</h3>
-              <p className="text-slate-300 text-xs">Powerful tools for beautiful content</p>
+              <h3 className="font-semibold text-base mb-1">Share Stories</h3>
+              <p className="text-teal-50 text-xs">Document your adventures</p>
             </div>
             
             <div className="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/20">
-              <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mb-3">
+              <div className="w-10 h-10 bg-white/30 rounded-lg flex items-center justify-center mb-3">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-base mb-1">Community</h3>
-              <p className="text-slate-300 text-xs">Connect with fellow writers</p>
+              <h3 className="font-semibold text-base mb-1">Connect</h3>
+              <p className="text-teal-50 text-xs">Meet fellow travelers</p>
             </div>
             
             <div className="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/20">
-              <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mb-3">
+              <div className="w-10 h-10 bg-white/30 rounded-lg flex items-center justify-center mb-3">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+                  <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-base mb-1">Analytics</h3>
-              <p className="text-slate-300 text-xs">Track your content performance</p>
+              <h3 className="font-semibold text-base mb-1">Discover</h3>
+              <p className="text-teal-50 text-xs">Explore destinations</p>
             </div>
             
             <div className="bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/20">
-              <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mb-3">
+              <div className="w-10 h-10 bg-white/30 rounded-lg flex items-center justify-center mb-3">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-base mb-1">Premium</h3>
-              <p className="text-slate-300 text-xs">Unlock advanced features</p>
+              <h3 className="font-semibold text-base mb-1">Inspire</h3>
+              <p className="text-teal-50 text-xs">Help others explore</p>
             </div>
           </div>
         </div>

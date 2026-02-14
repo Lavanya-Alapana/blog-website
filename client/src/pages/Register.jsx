@@ -30,6 +30,14 @@ const Register = () => {
     setLoading(true);
     setErrors({});
 
+    // Check if passwords match
+    if (formData.password !== formData.confirmPassword) {
+      setErrors({ confirmPassword: 'Passwords do not match' });
+      setLoading(false);
+      toast.error('Passwords do not match');
+      return;
+    }
+
     try {
       const { confirmPassword, ...registerData } = formData;
       await register(registerData);

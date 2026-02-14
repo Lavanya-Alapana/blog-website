@@ -45,21 +45,35 @@ const CreateBlog = () => {
 
     try {
       setUploading(true);
-      const formData = new FormData();
-      formData.append('image', file);
 
-      const response = await api.post('/upload/image', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
+      // Convert image to base64
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      
+      reader.onload = async () => {
+        try {
+          const base64Image = reader.result;
+
+          const response = await api.post('/upload/image', {
+            image: base64Image
+          });
+
+          setFormData(prev => ({ ...prev, featuredImage: response.data.data.url }));
+          setImagePreview(response.data.data.url);
+          toast.success('Image uploaded successfully');
+        } catch (error) {
+          toast.error(error.response?.data?.message || 'Failed to upload image');
+        } finally {
+          setUploading(false);
         }
-      });
+      };
 
-      setFormData(prev => ({ ...prev, featuredImage: response.data.data.url }));
-      setImagePreview(response.data.data.url);
-      toast.success('Image uploaded successfully');
+      reader.onerror = () => {
+        toast.error('Failed to read image file');
+        setUploading(false);
+      };
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Failed to upload image');
-    } finally {
+      toast.error('Failed to process image');
       setUploading(false);
     }
   };

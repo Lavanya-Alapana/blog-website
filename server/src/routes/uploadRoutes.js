@@ -1,34 +1,13 @@
 const express = require('express');
-const upload = require('../config/multer');
+const { uploadImage, deleteImage } = require('../controllers/uploadController');
 const { protect } = require('../middlewares/auth');
 
 const router = express.Router();
 
-// Upload single image
-router.post('/image', protect, upload.single('image'), (req, res) => {
-  try {
-    if (!req.file) {
-      return res.status(400).json({
-        success: false,
-        message: 'No file uploaded'
-      });
-    }
+// Upload single image to Cloudinary
+router.post('/image', protect, uploadImage);
 
-    const imageUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
-
-    res.json({
-      success: true,
-      data: {
-        filename: req.file.filename,
-        url: imageUrl
-      }
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message
-    });
-  }
-});
+// Delete image from Cloudinary
+router.delete('/image/:publicId', protect, deleteImage);
 
 module.exports = router;
